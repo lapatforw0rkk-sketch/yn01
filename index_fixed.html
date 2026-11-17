@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>พัฒนาเว็บไซต์รับเหมาก่อสร้าง ญาณอรรถ จำกัด</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background: #F8F3E8;
+    color: #24364B;
+}
+
+/* HEADER */
+header {
+    background: #24364B;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 12px #0002;
+}
+
+.logo {
+    color: #F5D16B;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #F8F3E8;
+    font-size: 13px;
+    display: block;
+    margin-top: 5px;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #F8F3E8;
+    padding: 11px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #C94343;
+    color: white;
+}
+
+/* HOME */
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    padding: 70px 10%;
+    background:
+    linear-gradient(90deg, #F8F3E8 45%, #F8F3E8CC 100%),
+    url("images/construction.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h3 {
+    color: #C94343;
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: 46px;
+    line-height: 1.4;
+    color: #24364B;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #C94343;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: #C94343;
+    color: white;
+    text-decoration: none;
+    padding: 14px 27px;
+    border-radius: 7px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #24364B;
+    transform: translateY(-3px);
+}
+
+/* SECTION */
+section {
+    padding: 75px 10%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 32px;
+    color: #24364B;
+    margin-bottom: 15px;
+}
+
+.section-title span {
+    color: #24364B;
+}
+
+.section-desc {
+    color: #777;
+    margin-bottom: 35px;
+    line-height: 1.8;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {cursor: pointer;
+    background: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px #0001;
+    border-bottom: 5px solid #F0C64F;
+    transition: 0.3s;
+}
+#about .card:first-child {
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-bottom-color: #C94343;
+}
+
+.card .icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #24364B;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #777;
+    line-height: 1.8;
+}
+
+/* HIGHLIGHT */
+.highlight {
+    background: #24364B;
+    color: #F8F3E8;
+}
+
+.highlight .section-title {
+    color: #F5D16B;
+}
+
+.highlight p {
+    line-height: 2;
+}
+
+/* CONTACT ALIGNMENT */
+#contact .card p {
+    text-align: left;
+    max-width: 550px;
+    margin: 8px auto;
+    padding-left: 10px;
+}
+footer {
+    background: #19293A;
+    color: #F8F3E8;
+    text-align: center;
+    padding: 30px;
+    line-height: 2;
+}
+
+footer span {
+    color: #F5D16B;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 9px;
+    }
+}
+
+/* POPUP WINDOW */
+.popup-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 30, 45, 0.7);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.popup-box {
+    background: #F8F3E8;
+    width: 100%;
+    max-width: 550px;
+    padding: 35px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 35px #0004;
+    animation: popupShow 0.3s ease;
+}
+
+.popup-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.popup-box h2 {
+    color: #24364B;
+    margin-bottom: 18px;
+    font-size: 26px;
+}
+
+.popup-box p {
+    color: #555;
+    line-height: 2;
+    text-align: left;
+    font-size: 16px;
+}
+
+.popup-close {
+    background: #C94343;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    margin-top: 25px;
+    cursor: pointer;
+    font-family: 'Prompt', sans-serif;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.popup-close:hover {
+    background: #24364B;
+    transform: translateY(-3px);
+}
+
+@keyframes popupShow {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* LINE CONTACT CARD */
+.line-contact {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 35px 25px;
+    text-align: center;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #19324e;
+    border-bottom: 5px solid #06C755;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.line-contact:hover {
+    transform: translateY(-5px);
+    border-bottom-color: #06C755;
+}
+
+.line-contact h3 {
+    color: #19324e;
+    margin: 10px 0;
+}
+
+.line-contact .line-description {
+    color: #666;
+    line-height: 1.8;
+    margin: 12px 0 20px;
+    text-align: center;
+    padding: 0;
+}
+
+.line-contact .line-button {
+    display: inline-block;
+    background: #06C755;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 30px;
+}
+
+.line-contact .line-id {
+    display: block;
+    margin-top: 14px;
+    color: #666;
+    font-size: 14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">
+        ญาณอรรถ จำกัด
+        <span>CONSTRUCTION LTD </span>
+    </div>
+
+    <nav>
+        <a href="#home">หน้าแรก</a>
+        <a href="#about">เกี่ยวกับเรา</a>
+        <a href="#service">บริการของเรา</a>
+        <a href="#portfolio">ผลงานของเรา</a>
+        <a href="#model">แบบจำลอง 3 มิติ</a>
+        <a href="#contact">ติดต่อเรา</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <h3>WELCOME TO YANNAAT CONSTRUCTION</h3>
+
+        <h1>
+            สร้างด้วยความใส่ใจ<br>
+            <span>ใส่ใจในทุกขั้นตอน</span>
+        </h1>
+
+        <p>
+            มุ่งมั่นสร้างผลงานที่มีคุณภาพ แข็งแรง ปลอดภัย
+            และสวยงาม ด้วยความตั้งใจในทุกขั้นตอน
+            ตั้งแต่การวางแผน ออกแบบ ไปจนถึงการก่อสร้างและส่งมอบงาน
+        </p>
+
+        <a href="#portfolio" class="btn">ชมผลงานของเรา →</a>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="section-title">เกี่ยวกับ<span>เรา</span></h2>
+
+    <p class="section-desc">
+        ญาณอรรถ จำกัด มุ่งเน้นการให้บริการด้านงานก่อสร้าง
+        ด้วยความใส่ใจในคุณภาพและความต้องการของลูกค้า
+        พร้อมพัฒนาการทำงานให้มีประสิทธิภาพอยู่เสมอ
+    </p>
+
+    <div class="cards">
+<div class="card" onclick="showInfo('quality')">
+            <div class="icon">🏗️</div>
+            <h3>คุณภาพ</h3>
+            <p>ใส่ใจในวัสดุและมาตรฐานการก่อสร้าง</p>
+        </div>
+
+<div class="card" onclick="showInfo('safety')">
+            <div class="icon">🛡️</div>
+            <h3>ความปลอดภัย</h3>
+            <p>ให้ความสำคัญกับความปลอดภัยทุกขั้นตอน</p>
+        </div>
+
+<div class="card" onclick="showInfo('trust')">
+            <div class="icon">🤝</div>
+            <h3>ความไว้วางใจ</h3>
+            <p>มุ่งมั่นสร้างความพึงพอใจให้แก่ลูกค้า</p>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICE -->
+<section id="service" class="highlight">
+    <h2 class="section-title">บริการของเรา</h2>
+    <p class="section-desc">
+        บริการด้านการก่อสร้างและออกแบบอย่างครบวงจร
+    </p>
+
+    <div class="cards">
+        <div class="card">
+            <div class="icon">🏠</div>
+            <h3>รับสร้างบ้าน</h3>
+            <p>ออกแบบและก่อสร้างบ้านตามความต้องการ</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏢</div>
+            <h3>อาคารและสิ่งปลูกสร้าง</h3>
+            <p>รับเหมาก่อสร้างอาคารและงานโครงสร้าง</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📐</div>
+            <h3>ออกแบบและวางแผน</h3>
+            <p>วางแผนและออกแบบงานก่อสร้างอย่างเหมาะสม</p>
+        </div>
+    </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+    <h2 class="section-title">ผลงานของ<span>เรา</span></h2>
+    <p class="section-desc">
+        รวบรวมผลงานและโครงการก่อสร้างที่ผ่านมา
+    </p>
+
+    <div class="cards">
+        <div class="card">
+            <div class="icon">🏡</div>
+            <h3>ผลงานบ้านพักอาศัย</h3>
+            <p>ตัวอย่างผลงานการก่อสร้างบ้าน</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏬</div>
+            <h3>ผลงานอาคาร</h3>
+            <p>ตัวอย่างผลงานก่อสร้างอาคาร</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🧱</div>
+            <h3>ผลงานโครงสร้าง</h3>
+            <p>ตัวอย่างผลงานด้านโครงสร้างต่าง ๆ</p>
+        </div>
+    </div>
+</section>
+
+<!-- 3D MODEL -->
+<section id="model" class="highlight">
+    <h2 class="section-title">แบบจำลอง 3 มิติ</h2>
+
+    <p class="section-desc">
+        นำเสนอแบบจำลองอาคารและสิ่งปลูกสร้าง
+        เพื่อให้ลูกค้าสามารถมองเห็นรูปแบบก่อนการก่อสร้างจริง
+    </p>
+
+    <div class="cards">
+        <div class="card">
+            <div class="icon">🏠</div>
+            <h3>บ้านสองชั้น</h3>
+            <p>แบบจำลองบ้านพักอาศัยสองชั้น</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏡</div>
+            <h3>บ้านชั้นเดียว</h3>
+            <p>แบบจำลองบ้านพักอาศัยชั้นเดียว</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🧱</div>
+            <h3>รั้วและกำแพง</h3>
+            <p>แบบจำลองรั้วและกำแพงรอบพื้นที่</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2 class="section-title">ติดต่อ<span>เรา</span></h2>
+
+    <p class="section-desc">
+        สนใจบริการรับเหมาก่อสร้างหรือสอบถามข้อมูลเพิ่มเติม
+        สามารถติดต่อเราได้ตามช่องทางด้านล่าง
+    </p>
+
+  
+<a href="line:/ti/p/supernesan"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="card line-contact">
+
+    <div class="icon">💬</div>
+    <h3>ปรึกษาทีมงานทาง LINE</h3>
+    <p class="line-description">สนใจรับเหมาก่อสร้าง หรือสอบถามข้อมูลเพิ่มเติม</p>
+    <span class="line-button">คลิกเพื่อปรึกษาทีมงานทาง LINE</span>
+    <span class="line-id">@yannaat.ltd</span>
+
+</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h3><span>ญาณอรรถ จำกัด</span></h3>
+    CONSTRUCTION LTD
+
+    <p>สร้างด้วยความใส่ใจ ใส่ใจในทุกขั้นตอน</p>
+
+    <p>© 2026 Yanat Construction. All Rights Reserved.</p>
+</footer>
+
+<!-- POPUP -->
+<div class="popup-bg" id="infoPopup"
+     onclick="closeInfo(event)">
+    <div class="popup-box">
+
+        <div class="popup-icon" id="popupIcon"></div>
+        <h2 id="popupTitle"></h2>
+        <p id="popupText"></p>
+
+
+    </div>
+</div>
+
+<script>
+function showInfo(type) {
+
+    const info = {
+
+        quality: {
+            icon: "🏗️",
+            title: "คุณภาพ",
+            text: "ญาณอรรถ จำกัด มุ่งมั่นสร้างผลงานที่มีคุณภาพ แข็งแรง และได้มาตรฐาน โดยใส่ใจตั้งแต่การเลือกวัสดุ การวางแผน และการควบคุมงานก่อสร้าง เพื่อให้ลูกค้าได้รับผลงานที่ดีที่สุด"
+        },
+
+        safety: {
+            icon: "🛡️",
+            title: "ความปลอดภัย",
+            text: "ให้ความสำคัญกับความปลอดภัยในทุกขั้นตอนของการก่อสร้าง ทั้งการตรวจสอบพื้นที่ การเลือกใช้อุปกรณ์ที่เหมาะสม และการปฏิบัติงานอย่างระมัดระวัง"
+        },
+
+        trust: {
+            icon: "🤝",
+            title: "ความไว้วางใจ",
+            text: "มุ่งเน้นการสร้างความไว้วางใจให้แก่ลูกค้า ด้วยความซื่อสัตย์ รับผิดชอบ ใส่ใจในรายละเอียด และส่งมอบงานตามความต้องการของลูกค้า"
+        }
+
+    };
+
+    document.getElementById("popupIcon").innerText = info[type].icon;
+    document.getElementById("popupTitle").innerText = info[type].title;
+    document.getElementById("popupText").innerText = info[type].text;
+
+    document.getElementById("infoPopup").style.display = "flex";
+}
+function closeInfo() {
+    document.getElementById("infoPopup").style.display = "none";
+}
+
+</script>
+</body>
+</html>
